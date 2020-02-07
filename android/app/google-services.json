@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "931785665218",
+    "firebase_url": "https://ziber-3b442.firebaseio.com",
+    "project_id": "ziber-3b442",
+    "storage_bucket": "ziber-3b442.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931785665218:android:919c186b89fce79c58a95b",
+        "android_client_info": {
+          "package_name": "com.lazarvgd.ziber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931785665218-02le668a7j5aq100fkvphda3oiuo8f24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwT7zoQS_b8OgyjUgFyYB1SJHSd-l2jTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931785665218-02le668a7j5aq100fkvphda3oiuo8f24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
