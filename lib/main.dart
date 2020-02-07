@@ -323,7 +323,7 @@ class _ChatState extends State<Chat> {
           children: <Widget>[
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: _firestore.collection('message').orderBy('date').snapshots(),
+                stream: _firestore.collection('message').snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData)
                     return Center(child: CircularProgressIndicator());
