@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      initialRoute: MyHomePage.id,
+      initialRoute: Home.id,
       routes: {
-        MyHomePage.id: (context) => MyHomePage(),
+        Home.id: (context) => Home(),
         Registration.id: (context) => Registration(),
         Chat.id: (context) => Chat(),
         Login.id: (context) => Login(),
@@ -279,6 +281,7 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  final String collection = 'message';
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final Firestore _firestore = Firestore.instance;
   TextEditingController messageController = TextEditingController();
@@ -287,7 +290,7 @@ class _ChatState extends State<Chat> {
   Future<void> callback() async {
     if (messageController.text.length > 0) {
       await _firestore
-          .collection('message')
+          .collection(collection)
           .add({'text': messageController.text, 'from': widget.user.email});
       messageController.clear();
       scrollController.animateTo(scrollController.position.maxScrollExtent,
@@ -297,6 +300,7 @@ class _ChatState extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: Hero(
@@ -323,7 +327,7 @@ class _ChatState extends State<Chat> {
           children: <Widget>[
             Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                stream: _firestore.collection('message').snapshots(),
+                stream: _firestore.collection(collection).snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData)
                     return Center(child: CircularProgressIndicator());
